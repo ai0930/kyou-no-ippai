@@ -1,0 +1,273 @@
+export type Drink = {
+  name: string;
+  type: string;
+  alcohol: number;
+  taste: string;
+  region: string;
+  pairing: string;
+  image: string;
+  description: string;
+  mood: string;
+  year: number;
+};
+
+export const drinks: Drink[] = [
+  {
+    name: "アサヒ スーパードライ",
+    type: "ビール",
+    alcohol: 5,
+    taste: "キレのある辛口",
+    region: "東京都",
+    pairing: "唐揚げ、餃子",
+    image:
+      "https://m.media-amazon.com/images/I/812T0aaN0NL._UF1000,1000_QL80_.jpg",
+    description: "定番の国産ビール。スッキリ爽快。",
+    mood: "仕事終わりのリフレッシュ",
+    year: 2023,
+  },
+  {
+    name: "キリン 一番搾り",
+    type: "ビール",
+    alcohol: 5,
+    taste: "まろやかでバランスが良い",
+    region: "神奈川県",
+    pairing: "焼き鳥、枝豆",
+    image: "https://www.miraido-onlineshop.com/images/cat/krnbericbnsbnm-2.jpg",
+    description: "優しいコクと飲みやすさが魅力。",
+    mood: "ほっとリラックスしたいとき",
+    year: 2022,
+  },
+  {
+    name: "サッポロ 黒ラベル",
+    type: "ビール",
+    alcohol: 5,
+    taste: "深いコクと香り",
+    region: "北海道",
+    pairing: "ステーキ、焼き魚",
+    image: "https://m.media-amazon.com/images/I/515e-u1BhGL.jpg",
+    description: "黒ビールの王道。濃厚な味わい。",
+    mood: "特別な日の乾杯に",
+    year: 2021,
+  },
+  {
+    name: "レモンサワー",
+    type: "サワー",
+    alcohol: 5,
+    taste: "さっぱり・爽快",
+    region: "日本全国",
+    pairing: "唐揚げ、焼き鳥",
+    image:
+      "https://setouchi-lemon.jp/wp-content/uploads/2020/10/%E3%83%AC%E3%83%A2%E3%83%B3%E3%82%B5%E3%83%AF%E3%83%BC%EF%BC%93.jpeg",
+    description: "シンプルで爽快な味わい、居酒屋の定番。",
+    mood: "リフレッシュしたい時",
+    year: 2023,
+  },
+  {
+    name: "グレープフルーツサワー",
+    type: "サワー",
+    alcohol: 5,
+    taste: "爽やかでほろ苦い",
+    region: "日本全国",
+    pairing: "サラダ、魚介",
+    image: "https://grafrufes.com/wp-content/uploads/2019/04/02.jpg",
+    description: "果実感たっぷりでスッキリとした後味。",
+    mood: "軽く飲みたい時",
+    year: 2023,
+  },
+  {
+    name: "カルピスサワー",
+    type: "サワー",
+    alcohol: 5,
+    taste: "甘酸っぱい・まろやか",
+    region: "日本全国",
+    pairing: "揚げ物、スパイシー料理",
+    image:
+      "https://www.asahibeer.co.jp/cocktail/search/image/item/2000000083.jpg",
+    description: "カルピスの優しい甘さと酸味がクセになる。",
+    mood: "甘い気分の時",
+    year: 2023,
+  },
+  {
+    name: "赤ワイン",
+    type: "ワイン",
+    alcohol: 12,
+    taste: "渋みと果実味",
+    region: "フランス/チリ/日本など",
+    pairing: "肉料理、チーズ",
+    image:
+      "https://www.ozmall.co.jp/Content/upload/images/ZJL3KYH7Q35OZHNSIWSCGXECEA.jpg",
+    description: "芳醇な香りと奥深い味わいを楽しめるワイン。",
+    mood: "落ち着いて語りたい夜に",
+    year: 2019,
+  },
+  {
+    name: "カシスオレンジ",
+    type: "カクテル",
+    alcohol: 8,
+    taste: "甘酸っぱい・フルーティ",
+    region: "世界中のバー",
+    pairing: "デザート、軽食",
+    image:
+      "https://www.olive-hitomawashi.com/column/assets_c/2020/03/AdobeStock_268259179-thumb-500xauto-288375.jpg",
+    description: "カシスリキュールとオレンジジュースの定番カクテル。",
+    mood: "女子会や初めてのお酒に",
+    year: 2023,
+  },
+  {
+    name: "ウーロンハイ",
+    type: "チューハイ",
+    alcohol: 7,
+    taste: "すっきり、ほろ苦い",
+    region: "日本",
+    pairing: "唐揚げ、焼き鳥",
+    image:
+      "https://agf.ajinomoto.co.jp/agfprofessional/images/recipe/recipeimg_oolonghigh_sp.jpg",
+    description: "ウーロン茶と焼酎の組み合わせで飲みやすく仕上げた一杯。",
+    mood: "仕事帰りにさっと一杯",
+    year: 2025,
+  },
+  {
+    name: "緑茶ハイ",
+    type: "チューハイ",
+    alcohol: 7,
+    taste: "さっぱり、ほのかな苦み",
+    region: "日本",
+    pairing: "和食、揚げ物",
+    image:
+      "https://agf.ajinomoto.co.jp/agfprofessional/images/recipe/recipeimg_greenteahigh_sp.jpg",
+    description: "緑茶の香りと焼酎が爽やかに調和した飲みやすいカクテル。",
+    mood: "ほっと一息つきたい時に",
+    year: 2025,
+  },
+  {
+    name: "カシスウーロン",
+    type: "カクテル",
+    alcohol: 8,
+    taste: "甘酸っぱい、フルーティー",
+    region: "日本",
+    pairing: "デザート、フルーツ系料理",
+    image:
+      "https://cdn.macaro-ni.jp/assets/img/shutterstock/shutterstock_154600424.jpg",
+    description: "カシスの甘みとウーロン茶の渋みが絶妙にマッチ。",
+    mood: "友達とゆったり話す夜に",
+    year: 2025,
+  },
+  {
+    name: "ファジーネーブル",
+    type: "カクテル",
+    alcohol: 7,
+    taste: "甘くフルーティー",
+    region: "アメリカ",
+    pairing: "軽食、スナック",
+    image:
+      "https://bonaccord.jp/wp-content/uploads/2022/07/%E3%83%95%E3%82%A1%E3%82%B8%E3%83%BC%E3%83%8D%E3%83%BC%E3%83%96%E3%83%AB-scaled.jpeg",
+    description: "ピーチリキュールとオレンジジュースで作る華やかなカクテル。",
+    mood: "明るく楽しいパーティーに",
+    year: 2025,
+  },
+  {
+    name: "モスコミュール",
+    type: "カクテル",
+    alcohol: 10,
+    taste: "ジンジャーの辛味とライムの酸味",
+    region: "アメリカ",
+    pairing: "ピザ、揚げ物",
+    image:
+      "https://bonaccord.jp/wp-content/uploads/2022/07/cocktail-gc08e60864_1920.jpg",
+    description:
+      "ジン、ジンジャービア、ライムを使った爽やかでキリッとしたカクテル。",
+    mood: "リフレッシュしたい時に",
+    year: 2025,
+  },
+  {
+    name: "ジントニック",
+    type: "カクテル",
+    alcohol: 10,
+    taste: "爽快、やや苦味",
+    region: "イギリス",
+    pairing: "シーフード、サラダ",
+    image:
+      "https://mi-journey.jp/foodie/wp-content/uploads/2024/03/240208gin11.jpg",
+    description: "ジンとトニックウォーターのシンプルで爽やかな一杯。",
+    mood: "涼しい夜に軽く飲みたい時",
+    year: 2025,
+  },
+  {
+    name: "スクリュードライバー",
+    type: "カクテル",
+    alcohol: 9,
+    taste: "甘酸っぱい、フルーティー",
+    region: "アメリカ",
+    pairing: "軽食、サンドイッチ",
+    image: "https://cocktailrecipe.jp/img/card/screwDriver.WebP",
+    description: "ウォッカとオレンジジュースを合わせたシンプルなカクテル。",
+    mood: "昼間や休日に気軽に楽しみたい時",
+    year: 2025,
+  },
+  {
+    name: "テキーラサンライズ",
+    type: "カクテル",
+    alcohol: 12,
+    taste: "甘酸っぱい、爽やか",
+    region: "メキシコ",
+    pairing: "チキン料理、タコス",
+    image:
+      "https://www.asahibeer.co.jp/cocktail/search/image/item/1010400429.jpg",
+    description:
+      "テキーラにオレンジジュースとグレナデンを加え、見た目も華やかなカクテル。",
+    mood: "朝や昼のイベントにぴったり",
+    year: 2025,
+  },
+  {
+    name: "コークハイ",
+    type: "ハイボール",
+    alcohol: 9,
+    taste: "甘くコクがある",
+    region: "日本",
+    pairing: "揚げ物、焼き鳥",
+    image: "https://cocktailrecipe.jp/img/card/coke_highball.WebP",
+    description: "ウイスキーとコーラを合わせた定番のハイボール。",
+    mood: "居酒屋でゆったり飲む夜に",
+    year: 2025,
+  },
+  {
+    name: "ジンジャーハイボール",
+    type: "ハイボール",
+    alcohol: 9,
+    taste: "スパイシーで爽快",
+    region: "日本",
+    pairing: "肉料理、餃子",
+    image: "https://image.tanoshiiosake.jp/images/28395.jpg",
+    description:
+      "ウイスキーとジンジャーエールのスパイシーで飲みやすい組み合わせ。",
+    mood: "ちょっとピリッとした刺激が欲しい時に",
+    year: 2025,
+  },
+  {
+    name: "レッドアイ",
+    type: "カクテル",
+    alcohol: 5,
+    taste: "ビールの苦味とトマトの旨味",
+    region: "アメリカ",
+    pairing: "朝食、軽食",
+    image:
+      "https://inageya-yell.com/wp-content/uploads/2023/09/pc_sec3_ttl_img-3-e1695270465820.png",
+    description:
+      "ビールとトマトジュースを混ぜた、さっぱりした飲みやすいカクテル。",
+    mood: "朝や昼に軽く楽しみたい時",
+    year: 2025,
+  },
+  {
+    name: "白ワイン",
+    type: "ワイン",
+    alcohol: 11,
+    taste: "酸味と果実味",
+    region: "フランス/チリ/日本など",
+    pairing: "魚料理、サラダ",
+    image:
+      "https://www.biccamera.com/bc/include_cms_contents/topics/osusume_white_wine/01.jpg",
+    description: "フルーティーで軽やかな香りを楽しめるワイン。",
+    mood: "さっぱりとした気分で語りたい夜に",
+    year: 2019,
+  },
+];

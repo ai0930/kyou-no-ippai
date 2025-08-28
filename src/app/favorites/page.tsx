@@ -53,7 +53,15 @@ export default function FavoritesPage() {
 
   return (
     <Box pb={7}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "#FFAC62",
+          "& .MuiToolbar-root": {
+            color: "#fff",
+          },
+        }}
+      >
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
             お気に入り

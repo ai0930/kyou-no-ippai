@@ -1,12 +1,16 @@
 :root {
-  --background: #ffffff;
+  --background: #fff7e6;
   --foreground: #171717;
+  --topbar-color: #ffac62;
+  --card-background: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fff7e6;
+    --foreground: #171717;
+    --topbar-color: #ffac62;
+    --card-background: #ffffff;
   }
 }
 
@@ -35,8 +39,18 @@ a {
   text-decoration: none;
 }
 
+/* カードの背景色を白に設定 */
+.MuiCard-root {
+  background-color: var(--card-background) !important;
+}
+
+/* ボトムナビゲーションの背景色を白に設定 */
+.MuiBottomNavigation-root {
+  background-color: var(--card-background) !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 }

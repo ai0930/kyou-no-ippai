@@ -22,7 +22,7 @@
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
-    background: rgb(80, 40, 0);
+    background: #fff7e6;
 
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
@@ -166,7 +166,7 @@ a.secondary {
 }
 
 .topbar {
-  background: rgb(231, 153, 35) !important;
+  background: #ffac62 !important;
   color: #fff !important;
 }
 

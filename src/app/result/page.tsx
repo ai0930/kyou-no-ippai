@@ -15,11 +15,14 @@ import {
   Chip,
   BottomNavigation,
   BottomNavigationAction,
+  IconButton,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import HistoryIcon from "@mui/icons-material/History";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 type Filters = {
   drinkLevel?: string;
@@ -87,6 +90,7 @@ export default function ResultPage() {
   const search = useSearchParams();
   const router = useRouter();
   const [nav, setNav] = useState(0);
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
   const filters: Filters = useMemo(
     () => ({
@@ -135,7 +139,7 @@ export default function ResultPage() {
         router.push("/");
         break;
       case 1:
-        router.push("/history");
+        router.push("/favorites");
         break;
       case 2:
         router.push("/mypage");
@@ -186,7 +190,7 @@ export default function ResultPage() {
           </Box>
         )}
         {recommendations.map((d) => (
-          <Card key={d.name}>
+          <Card key={d.name} sx={{ position: "relative" }}>
             <CardMedia
               component="img"
               height="200"
@@ -199,6 +203,24 @@ export default function ResultPage() {
                   "https://via.placeholder.com/400x200?text=No+Image";
               }}
             />
+            <IconButton
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.9)",
+                },
+              }}
+              onClick={() => toggleFavorite(d.name)}
+            >
+              {isFavorite(d.name) ? (
+                <FavoriteIcon color="error" />
+              ) : (
+                <FavoriteBorderIcon />
+              )}
+            </IconButton>
             <CardContent>
               <Typography variant="h6">{d.name}</Typography>
               <Typography variant="body2" sx={{ mt: 0.5 }}>
@@ -230,7 +252,7 @@ export default function ResultPage() {
         onChange={handleNav}
       >
         <BottomNavigationAction label="ホーム" icon={<HomeIcon />} />
-        <BottomNavigationAction label="履歴" icon={<HistoryIcon />} />
+        <BottomNavigationAction label="お気に入り" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="マイページ" icon={<PersonIcon />} />
         <BottomNavigationAction label="設定" icon={<SettingsIcon />} />
       </BottomNavigation>

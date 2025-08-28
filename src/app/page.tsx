@@ -12,14 +12,16 @@ import {
   Box,
   BottomNavigation,
   BottomNavigationAction,
+  IconButton,
 } from "@mui/material";
 import { drinks } from "./data";
 import HomeIcon from "@mui/icons-material/Home";
-import HistoryIcon from "@mui/icons-material/History";
 import PersonIcon from "@mui/icons-material/Person";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import styles from "./page.module.css";
-
 import { useRouter } from "next/navigation";
+import { useFavorites } from "./contexts/FavoritesContext";
 
 export default function HomePage() {
   const [drinkLevel, setDrinkLevel] = useState("");
@@ -27,8 +29,10 @@ export default function HomePage() {
   const [region, setRegion] = useState("");
   const [pairing, setPairing] = useState("");
   const [mood, setMood] = useState("");
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const router = useRouter();
   const [nav, setNav] = useState(0);
+
   // ランダムで1件選ぶ（初回マウント時のみ）
   const randomDrink = useMemo(
     () => drinks[Math.floor(Math.random() * drinks.length)],
@@ -43,7 +47,7 @@ export default function HomePage() {
         router.push("/");
         break;
       case 1:
-        router.push("/history");
+        router.push("/favorites");
         break;
       case 2:
         router.push("/mypage");
@@ -57,10 +61,7 @@ export default function HomePage() {
   return (
     <Box pb={7}>
       {/* トップバー */}
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "#ff7300", color: "#fff" }}
-      >
+      <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
             今日の一杯
@@ -69,13 +70,31 @@ export default function HomePage() {
       </AppBar>
 
       {/* 今日のおすすめ（ランダム） */}
-      <Card sx={{ m: 2 }}>
+      <Card sx={{ m: 2, position: "relative" }}>
         <CardMedia
           component="img"
           height="200"
           image={randomDrink.image}
           alt={randomDrink.name}
         />
+        <IconButton
+          sx={{
+            position: "absolute",
+            top: 8,
+            right: 8,
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+            },
+          }}
+          onClick={() => toggleFavorite(randomDrink.name)}
+        >
+          {isFavorite(randomDrink.name) ? (
+            <FavoriteIcon color="error" />
+          ) : (
+            <FavoriteBorderIcon />
+          )}
+        </IconButton>
         <CardContent>
           <Typography variant="h6" className={styles.name}>
             {randomDrink.name}
@@ -197,7 +216,7 @@ export default function HomePage() {
         onChange={handleNav}
       >
         <BottomNavigationAction label="ホーム" icon={<HomeIcon />} />
-        <BottomNavigationAction label="履歴" icon={<HistoryIcon />} />
+        <BottomNavigationAction label="お気に入り" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="マイページ" icon={<PersonIcon />} />
         <BottomNavigationAction label="設定" icon={<SettingsIcon />} />
       </BottomNavigation>

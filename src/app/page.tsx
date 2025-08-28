@@ -58,7 +58,10 @@ export default function HomePage() {
     // <div className={styles.page}>
     <Box pb={7}>
       {/* トップバー */}
-      <AppBar position="static" className={styles.topbar}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#ff7300", color: "#fff" }}
+      >
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
             今日の一杯

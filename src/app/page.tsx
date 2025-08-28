@@ -55,7 +55,6 @@ export default function HomePage() {
   };
 
   return (
-    // <div className={styles.page}>
     <Box pb={7}>
       {/* トップバー */}
       <AppBar position="static" className={styles.topbar}>
@@ -200,6 +199,5 @@ export default function HomePage() {
         <BottomNavigationAction label="設定" icon={<SettingsIcon />} />
       </BottomNavigation>
     </Box>
-    // </div>
   );
 }

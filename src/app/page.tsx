@@ -56,7 +56,10 @@ export default function HomePage() {
   return (
     <Box pb={7}>
       {/* トップバー */}
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#ff7300ff", color: "#ffffffff" }}
+      >
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
             今日の一杯

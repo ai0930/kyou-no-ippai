@@ -21,6 +21,8 @@ import HistoryIcon from "@mui/icons-material/History";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
 
+import styles from "./page.module.css";
+
 type Filters = {
   drinkLevel?: string;
   taste?: string;
@@ -148,7 +150,11 @@ export default function ResultPage() {
 
   return (
     <Box pb={7}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#ff7300", color: "#fff" }}
+        className={styles.resultBar}
+      >
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
             おすすめ結果

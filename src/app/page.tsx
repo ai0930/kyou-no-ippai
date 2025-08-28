@@ -17,6 +17,7 @@ import { drinks } from "./data";
 import HomeIcon from "@mui/icons-material/Home";
 import HistoryIcon from "@mui/icons-material/History";
 import PersonIcon from "@mui/icons-material/Person";
+import styles from "./page.module.css";
 
 import { useRouter } from "next/navigation";
 
@@ -54,11 +55,12 @@ export default function HomePage() {
   };
 
   return (
+    // <div className={styles.page}>
     <Box pb={7}>
       {/* トップバー */}
       <AppBar
         position="static"
-        sx={{ backgroundColor: "#ff7300ff", color: "#ffffffff" }}
+        sx={{ backgroundColor: "#ff7300", color: "#fff" }}
       >
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
@@ -76,9 +78,13 @@ export default function HomePage() {
           alt={randomDrink.name}
         />
         <CardContent>
-          <Typography variant="h6">{randomDrink.name}</Typography>
-          <Typography variant="body2">
+          <Typography variant="h6" className={styles.name}>
+            {randomDrink.name}
+          </Typography>
+          <Typography variant="body2" className={styles.carddis}>
             {randomDrink.type} / アルコール{randomDrink.alcohol} <br />
+          </Typography>
+          <Typography variant="body2" className={styles.features}>
             {randomDrink.description}
           </Typography>
         </CardContent>
@@ -197,5 +203,6 @@ export default function HomePage() {
         <BottomNavigationAction label="設定" icon={<SettingsIcon />} />
       </BottomNavigation>
     </Box>
+    // </div>
   );
 }

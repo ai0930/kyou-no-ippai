@@ -32,6 +32,10 @@ export default function HomePage() {
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const router = useRouter();
   const [nav, setNav] = useState(0);
+  const [expandedTaste, setExpandedTaste] = useState(false);
+  const [expandedRegion, setExpandedRegion] = useState(false);
+  const [expandedPairing, setExpandedPairing] = useState(false);
+  const [expandedMood, setExpandedMood] = useState(false);
 
   // ランダムで1件選ぶ（初回マウント時のみ）
   const randomDrink = useMemo(
@@ -167,7 +171,7 @@ export default function HomePage() {
           <Typography sx={{ color: "#000000", mb: 2, fontWeight: "medium" }}>
             どんな味が飲みたいですか？
           </Typography>
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
             {["さっぱり", "甘い", "苦い", "フルーティー", "コクがある"].map(
               (t) => (
                 <Button
@@ -188,7 +192,51 @@ export default function HomePage() {
                 </Button>
               )
             )}
+            <Button
+              variant="outlined"
+              onClick={() => setExpandedTaste(!expandedTaste)}
+              sx={{
+                borderColor: "#FFAC62",
+                color: "#FFAC62",
+                minWidth: "40px",
+                "&:hover": {
+                  backgroundColor: "#FFF7E6",
+                  borderColor: "#FFAC62",
+                },
+              }}
+            >
+              {expandedTaste ? "−" : "+"}
+            </Button>
           </Box>
+          {expandedTaste && (
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+              {[
+                "スパイシー",
+                "酸味",
+                "塩味",
+                "渋み",
+                "香り高い",
+                "まろやか",
+              ].map((t) => (
+                <Button
+                  key={t}
+                  variant={taste === t ? "contained" : "outlined"}
+                  onClick={() => setTaste(t)}
+                  sx={{
+                    backgroundColor: taste === t ? "#FFAC62" : "transparent",
+                    borderColor: taste === t ? "#FFAC62" : "#ddd",
+                    color: taste === t ? "#fff" : "#959595",
+                    "&:hover": {
+                      backgroundColor: taste === t ? "#FFAC62" : "#f5f5f5",
+                      borderColor: taste === t ? "#FFAC62" : "#ddd",
+                    },
+                  }}
+                >
+                  {t}
+                </Button>
+              ))}
+            </Box>
+          )}
         </Box>
 
         {/* 質問3: 地域 */}
@@ -196,7 +244,7 @@ export default function HomePage() {
           <Typography sx={{ color: "#000000", mb: 2, fontWeight: "medium" }}>
             どの地域のお酒が気になりますか？
           </Typography>
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
             {["日本", "北海道", "関東", "関西", "海外"].map((r) => (
               <Button
                 key={r}
@@ -215,7 +263,54 @@ export default function HomePage() {
                 {r}
               </Button>
             ))}
+            <Button
+              variant="outlined"
+              onClick={() => setExpandedRegion(!expandedRegion)}
+              sx={{
+                borderColor: "#FFAC62",
+                color: "#FFAC62",
+                minWidth: "40px",
+                "&:hover": {
+                  backgroundColor: "#FFF7E6",
+                  borderColor: "#FFAC62",
+                },
+              }}
+            >
+              {expandedRegion ? "−" : "+"}
+            </Button>
           </Box>
+          {expandedRegion && (
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+              {[
+                "東北",
+                "中部",
+                "中国",
+                "四国",
+                "九州",
+                "沖縄",
+                "ヨーロッパ",
+                "アジア",
+                "アメリカ",
+              ].map((r) => (
+                <Button
+                  key={r}
+                  variant={region === r ? "contained" : "outlined"}
+                  onClick={() => setRegion(r)}
+                  sx={{
+                    backgroundColor: region === r ? "#FFAC62" : "transparent",
+                    borderColor: region === r ? "#FFAC62" : "#ddd",
+                    color: region === r ? "#fff" : "#959595",
+                    "&:hover": {
+                      backgroundColor: region === r ? "#FFAC62" : "#f5f5f5",
+                      borderColor: region === r ? "#FFAC62" : "#ddd",
+                    },
+                  }}
+                >
+                  {r}
+                </Button>
+              ))}
+            </Box>
+          )}
         </Box>
 
         {/* 質問4: おつまみ・ペアリング */}
@@ -223,7 +318,7 @@ export default function HomePage() {
           <Typography sx={{ color: "#000000", mb: 2, fontWeight: "medium" }}>
             一緒に食べたいおつまみは？
           </Typography>
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
             {["唐揚げ", "枝豆", "チーズ", "サラダ", "デザート"].map((p) => (
               <Button
                 key={p}
@@ -242,7 +337,53 @@ export default function HomePage() {
                 {p}
               </Button>
             ))}
+            <Button
+              variant="outlined"
+              onClick={() => setExpandedPairing(!expandedPairing)}
+              sx={{
+                borderColor: "#FFAC62",
+                color: "#FFAC62",
+                minWidth: "40px",
+                "&:hover": {
+                  backgroundColor: "#FFF7E6",
+                  borderColor: "#FFAC62",
+                },
+              }}
+            >
+              {expandedPairing ? "−" : "+"}
+            </Button>
           </Box>
+          {expandedPairing && (
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+              {[
+                "刺身",
+                "焼き鳥",
+                "ナッツ",
+                "オリーブ",
+                "チョコレート",
+                "フルーツ",
+                "和菓子",
+                "洋菓子",
+              ].map((p) => (
+                <Button
+                  key={p}
+                  variant={pairing === p ? "contained" : "outlined"}
+                  onClick={() => setPairing(p)}
+                  sx={{
+                    backgroundColor: pairing === p ? "#FFAC62" : "transparent",
+                    borderColor: pairing === p ? "#FFAC62" : "#ddd",
+                    color: pairing === p ? "#fff" : "#959595",
+                    "&:hover": {
+                      backgroundColor: pairing === p ? "#FFAC62" : "#f5f5f5",
+                      borderColor: pairing === p ? "#FFAC62" : "#ddd",
+                    },
+                  }}
+                >
+                  {p}
+                </Button>
+              ))}
+            </Box>
+          )}
         </Box>
 
         {/* 質問5: シーン・気分 */}
@@ -250,7 +391,7 @@ export default function HomePage() {
           <Typography sx={{ color: "#000000", mb: 2, fontWeight: "medium" }}>
             どんなシーン・気分で飲みたい？
           </Typography>
-          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
             {[
               "仕事終わり",
               "リラックス",
@@ -275,7 +416,53 @@ export default function HomePage() {
                 {m}
               </Button>
             ))}
+            <Button
+              variant="outlined"
+              onClick={() => setExpandedMood(!expandedMood)}
+              sx={{
+                borderColor: "#FFAC62",
+                color: "#FFAC62",
+                minWidth: "40px",
+                "&:hover": {
+                  backgroundColor: "#FFF7E6",
+                  borderColor: "#FFAC62",
+                },
+              }}
+            >
+              {expandedMood ? "−" : "+"}
+            </Button>
           </Box>
+          {expandedMood && (
+            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+              {[
+                "記念日",
+                "一人の時間",
+                "友達と",
+                "家族と",
+                "デート",
+                "朝活",
+                "夜更かし",
+                "早起き",
+              ].map((m) => (
+                <Button
+                  key={m}
+                  variant={mood === m ? "contained" : "outlined"}
+                  onClick={() => setMood(m)}
+                  sx={{
+                    backgroundColor: mood === m ? "#FFAC62" : "transparent",
+                    borderColor: mood === m ? "#FFAC62" : "#ddd",
+                    color: mood === m ? "#fff" : "#959595",
+                    "&:hover": {
+                      backgroundColor: mood === m ? "#FFAC62" : "#f5f5f5",
+                      borderColor: mood === m ? "#FFAC62" : "#ddd",
+                    },
+                  }}
+                >
+                  {m}
+                </Button>
+              ))}
+            </Box>
+          )}
         </Box>
 
         {/* 結果へ */}

@@ -470,7 +470,15 @@ export default function HomePage() {
           <Button
             variant="contained"
             disabled={!drinkLevel}
-            onClick={() => router.push("/result")}
+            onClick={() => {
+              const params = new URLSearchParams();
+              if (drinkLevel) params.set("drinkLevel", drinkLevel);
+              if (taste) params.set("taste", taste);
+              if (region) params.set("region", region);
+              if (pairing) params.set("pairing", pairing);
+              if (mood) params.set("mood", mood);
+              router.push(`/result?${params.toString()}`);
+            }}
             sx={{
               backgroundColor: "#FFAC62",
               "&:hover": {

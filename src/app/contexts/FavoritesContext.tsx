@@ -40,19 +40,22 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   }, [favorites]);
 
   const toggleFavorite = (drinkName: string) => {
+    const normalized = drinkName.trim();
     setFavorites((prev) =>
-      prev.includes(drinkName)
-        ? prev.filter((name) => name !== drinkName)
-        : [...prev, drinkName]
+      prev.map((n) => n.trim()).includes(normalized)
+        ? prev.filter((name) => name.trim() !== normalized)
+        : [...prev, normalized]
     );
   };
 
   const removeFavorite = (drinkName: string) => {
-    setFavorites((prev) => prev.filter((name) => name !== drinkName));
+    const normalized = drinkName.trim();
+    setFavorites((prev) => prev.filter((name) => name.trim() !== normalized));
   };
 
   const isFavorite = (drinkName: string) => {
-    return favorites.includes(drinkName);
+    const normalized = drinkName.trim();
+    return favorites.map((n) => n.trim()).includes(normalized);
   };
 
   return (

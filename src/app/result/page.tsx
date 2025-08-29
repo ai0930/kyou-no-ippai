@@ -7,7 +7,6 @@ import {
   Toolbar,
   Typography,
   Card,
-  CardMedia,
   CardContent,
   CardActions,
   Button,
@@ -17,6 +16,8 @@ import {
   BottomNavigationAction,
   IconButton,
 } from "@mui/material";
+// CardMedia,
+import Image from "next/image";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -199,18 +200,18 @@ export default function ResultPage() {
         )}
         {recommendations.map((d) => (
           <Card key={d.name} sx={{ position: "relative" }}>
-            <CardMedia
-              component="img"
-              height="200"
-              image={d.image}
-              alt={d.name}
-              referrerPolicy="no-referrer"
-              crossOrigin="anonymous"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src =
-                  "https://via.placeholder.com/400x200?text=No+Image";
-              }}
-            />
+            <Box
+              sx={{ width: 400, height: 200, position: "relative", mx: "auto" }}
+            >
+              <Image
+                src={d.image}
+                alt={d.name}
+                width={400}
+                height={200}
+                style={{ objectFit: "cover", borderRadius: 8 }}
+                priority={true}
+              />
+            </Box>
             <IconButton
               sx={{
                 position: "absolute",

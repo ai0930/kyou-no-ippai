@@ -94,18 +94,6 @@ export default function FavoritesPage() {
           <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 2 }}>
             {favoriteDrinks.map((d) => (
               <Card key={d.name} sx={{ position: "relative" }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={d.image}
-                  alt={d.name}
-                  referrerPolicy="no-referrer"
-                  crossOrigin="anonymous"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src =
-                      "https://via.placeholder.com/400x200?text=No+Image";
-                  }}
-                />
                 <IconButton
                   sx={{
                     position: "absolute",
